@@ -1506,6 +1506,9 @@ function finity.new(isdark, gprojectName, thinProject)
 	self2.categories.ClipsDescendants = true
 	
 	if not game:GetService("RunService"):IsStudio() then
+		pcall(function()
+			syn.protect_gui(self2)
+		end)
 		self2.userinterface.Parent = game:GetService("CoreGui")
 	else
 		self2.userinterface.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
